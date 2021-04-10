@@ -31,7 +31,7 @@ export function draw(gameBoard) {
         snakeEle.style.gridRowStart = rib.y;
         snakeEle.style.gridColumnStart = rib.x;
         snakeEle.classList.add('snake');
-        snakeEle.classList.add('bg-success');
+        snakeEle.classList.add('bg-primary');
         if(i === 0) {
             snakeEle.classList.add('head');
         }
