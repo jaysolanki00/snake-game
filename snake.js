@@ -37,7 +37,7 @@ export function draw(gameBoard) {
         }
         gameBoard.appendChild(snakeEle);
     });
-    document.getElementById('high-score').innerText = 'High Score: ' + (snakeBody.length - 1) ;
+    document.getElementById('high-score').innerText = 'Score: ' + (snakeBody.length - 1) ;
 }
 
 export function expandSnake(amount) {
