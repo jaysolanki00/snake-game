@@ -37,3 +37,9 @@ export function getInputDirection() {
     lastDirection = inputDirection;
     return inputDirection;
 }
+
+export function resetInputDirection() {
+    inputDirection = { x: 0, y: 0 };
+    lastDirection = { x: 0, y: 0 };
+
+}

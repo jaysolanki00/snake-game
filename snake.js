@@ -1,13 +1,20 @@
 import { getInputDirection } from "./input.js";
 
 // 1 meaning 1 movement per second
-export const snakeSpeed = 5;
+export let snakeSpeed = 5;
 // -ve y moves up +ve y moves down
-export const snakeBody = [
+export let snakeBody = [
     { x: 11, y:11 }
 ];
 
 let newSegments = 0;
+
+export function resetSnake() {
+    snakeBody = [
+        { x: 11, y:11 }
+    ];
+    newSegments = 0;
+}
 
 export function update() {
     addSegments();
@@ -24,11 +31,13 @@ export function draw(gameBoard) {
         snakeEle.style.gridRowStart = rib.y;
         snakeEle.style.gridColumnStart = rib.x;
         snakeEle.classList.add('snake');
+        snakeEle.classList.add('bg-primary');
         if(i === 0) {
             snakeEle.classList.add('head');
         }
         gameBoard.appendChild(snakeEle);
     });
+    document.getElementById('high-score').innerText = 'High Score: ' + (snakeBody.length - 1) ;
 }
 
 export function expandSnake(amount) {
@@ -57,4 +66,12 @@ function addSegments() {
         snakeBody.push({ ...snakeBody[snakeBody , length-1 ]})
     }
     newSegments = 0;
+}
+
+export function getSnakeSpeed() {
+    return snakeSpeed;
+}
+
+export function setSnakeSpeed(newSpeed) {
+    snakeSpeed = newSpeed;
 }

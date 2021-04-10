@@ -2,8 +2,13 @@ import { getRandomGridPosition } from "./grid.js";
 import { expandSnake, onSnake } from "./snake.js";
 
 let food = getRandomFoodPos();
-const expansionRate = 1;
+let expansionRate = 1;
 let isVisible = false;
+
+export function resetFood() {
+    food = getRandomFoodPos();
+    isVisible = false;
+}
 
 export function update() {
     if(onSnake(food)) {
@@ -17,6 +22,7 @@ export function draw(gameBoard) {
         foodEle.style.gridRowStart = food.y;
         foodEle.style.gridColumnStart = food.x;
         foodEle.classList.add('food');
+        foodEle.classList.add('bg-warning')
         gameBoard.appendChild(foodEle);    
     }
     isVisible = !isVisible;
@@ -28,4 +34,12 @@ function getRandomFoodPos() {
         newFoodPos = getRandomGridPosition();
     }
     return newFoodPos;
+}
+
+export function getExpansionRate() {
+    return expansionRate;
+}
+
+export function setExpansionRate(newExpRate) {
+    expansionRate = newExpRate;
 }

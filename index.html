@@ -5,8 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake</title>
+    <link href="https://allfont.net/allfont.css?fonts=snake" rel="stylesheet" type="text/css" />
+    <!-- Latest compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
     <style>
         body {
+            font-family: 'Snake', arial;
             height: 100vh;
             width: 100vw;
             margin: 0px;
@@ -14,35 +26,50 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: black;
+            /* background-color: #ad6666; */
         }
         .game-over {
             text-align: center;
         }
         #game-canvas {
-            background-color: #c3c3c3;
-            width: 100vmin;
-            height: 100vmin;
+            /* background-color: #c3c3c3; */
+            width: calc(100vmin - 50px);
+            height: calc(100vmin - 50px);
             display: grid;
             grid-template-rows: repeat(21, 1fr);
             grid-template-columns: repeat(21, 1fr);
+            border: solid 6px ;
         }
         .snake{
             background-color: cornflowerblue;
-            border: .25vmin solid black ;
+            /* border: .25vmin solid black; */
+            /* border-radius: 35%; */
         }
         .snake.head {
-            background-color: #0b4bbd;
+            background-color: #0b4bbd !important;
         }
         .food{
-            background-color: darkkhaki;
-            border: .25vmin solid black ;
+            /* background-color: darkkhaki; */
+            /* border: .25vmin solid black; */
+            border-radius: 50%;
 
+        }
+        .high-score {
+            position: fixed;
+            top: 0;
+            padding-left: 20px;
+            padding-top: 50px;
         }
     </style>
     <script src="game.js" defer type="module"></script>
 </head>
-<body>
-    <div id="game-canvas" ></div>
+<body class="bg-dark">
+    <div>
+        <div class="high-score text-light">
+            <h3 id="high-score"></h3>
+        </div>
+        <div id="game-canvas" class="bg-secondary border-danger text-light" ></div>
+
+    </div>
 </body>
 </html>
